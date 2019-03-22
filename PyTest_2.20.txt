@@ -7,4 +7,4 @@
 5.²»Í¬²½£ºgit fetch --all
                 git reset --hard origin/master
                 git pull
-                
+6.
