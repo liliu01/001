@@ -7,7 +7,7 @@
 5.不同步：git fetch --all
                 git reset --hard origin/master
                 git pull
-
+git log --graph --pretty=oneline --abbrev-commit
  6. HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
 要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
@@ -117,3 +117,50 @@ $ git stash list
 21.删除分支：$ git branch -d 分支名字 （-D为强行删除）
 开发一个新feature，最好新建一个分支；
 如果要丢弃一个没有被合并过的分支，可以通过git branch -D <name>强行删除。
+
+22.多人协作（查看远程分支git branch -r   查看所有分支：git branch -a）
+当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin
+要查看远程库的信息，用git remote：，用git remote -v显示更详细的信息：
+推送分支，就是把该分支上的所有本地提交推送到远程库。推送时，要指定本地分支：$ git push origin dev
+master分支是主分支，因此要时刻与远程同步；
+dev分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；
+bug分支只用于在本地修复bug，就没必要推到远程了，除非老板要看看你每周到底修复了几个bug；
+feature分支是否推到远程，取决于你是否和你的小伙伴合作在上面开发。
+
+抓取分支：
+创建远程origin的dev分支到本地：$ git checkout -b dev origin/dev
+
+多人协作的工作模式通常是这样：
+首先，可以试图用git push origin <branch-name>推送自己的修改；
+如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+如果合并有冲突，则解决冲突，并在本地提交；
+没有冲突或者解决掉冲突后，再用git push origin <branch-name>推送就能成功！
+如果git pull提示no tracking information，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream-to <branch-name> origin/<branch-name>。
+
+23.Rebase
+Git有一种称为rebase的操作，有人把它翻译成“变基”。
+这就是rebase操作的特点：把分叉的提交历史“整理”成一条直线，看上去更直观。缺点是本地的分叉提交已经被修改过了。
+
+24.创建标签：$ git tag v1.0
+查看标签：$ git tag
+给之前提交打标签：$ git log --pretty=oneline --abbrev-commit    $ git tag v0.9 f52c633
+查看标签信息$ git show v0.9
+还可以创建带有说明的标签，用-a指定标签名，-m指定说明文字，$ git tag -a v0.1 -m "version 0.1 released" 1094adb
+（小结：
+命令git tag <tagname>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
+命令git tag -a <tagname> -m "blablabla..."可以指定标签信息；
+命令git tag可以查看所有标签。）
+
+25.操作标签
+删除标签：$ git tag -d v0.1
+如果要推送某个标签到远程，使用命令git push origin <tagname>：$ git push origin v1.0
+一次性推送全部尚未推送到远程的本地标签：$ git push origin --tags
+标签已经推送到远程，删除步骤：先删除本地：$ git tag -d v0.9；远程删除：$ git push origin :refs/tags/v0.9
+（小结
+命令git push origin <tagname>可以推送一个本地标签；
+命令git push origin --tags可以推送全部未推送过的本地标签；
+命令git tag -d <tagname>可以删除一个本地标签；
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。）
+
+26.关联码云：git remote add   （git remote add origin git@gitee.com:liaoxuefeng/learngit.git)
+先用git remote -v查看远程库信息：
