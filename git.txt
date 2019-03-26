@@ -36,4 +36,8 @@ GitµÄ°æ±¾¿âÀï´æÁËºÜ¶à¶«Î÷£¬ÆäÖÐ×îÖØÒªµÄ¾ÍÊÇ³ÆÎªstage£¨»òÕß½Ðindex£©µÄÔÝ´æÇø£¬»¹Ó
 Ò»ÖÖÊÇreadme.txt×ÔÐÞ¸Äºó»¹Ã»ÓÐ±»·Åµ½ÔÝ´æÇø£¬ÏÖÔÚ£¬³·ÏúÐÞ¸Ä¾Í»Øµ½ºÍ°æ±¾¿âÒ»Ä£Ò»ÑùµÄ×´Ì¬£»
 Ò»ÖÖÊÇreadme.txtÒÑ¾­Ìí¼Óµ½ÔÝ´æÇøºó£¬ÓÖ×÷ÁËÐÞ¸Ä£¬ÏÖÔÚ£¬³·ÏúÐÞ¸Ä¾Í»Øµ½Ìí¼Óµ½ÔÝ´æÇøºóµÄ×´Ì¬¡£
 ×ÜÖ®£¬¾ÍÊÇÈÃÕâ¸öÎÄ¼þ»Øµ½×î½üÒ»´Îgit commit»ògit addÊ±µÄ×´Ì¬¡£git checkout -- fileÃüÁîÖÐµÄ--ºÜÖØÒª£¬Ã»ÓÐ--£¬¾Í±ä³ÉÁË¡°ÇÐ»»µ½ÁíÒ»¸ö·ÖÖ§¡±µÄÃüÁî
-git reset HEAD <file>             $ git reset HEAD readme.txt ¿ÉÒÔ°ÑÔÝ´æÇøµÄÐÞ¸Ä³·Ïúµô£¨unstage£©
+git reset HEAD <file>             $ git reset HEAD readme.txt ¿ÉÒÔ°ÑÔÝ´æÇøµÄÐÞ¸Ä³·Ïúµô£¨unstage£©£¬git resetÃüÁî¼È¿ÉÒÔ»ØÍË°æ±¾£¬Ò²¿ÉÒÔ°ÑÔÝ´æÇøµÄÐÞ¸Ä»ØÍËµ½¹¤×÷Çø¡£µ±ÎÒÃÇÓÃHEADÊ±£¬±íÊ¾×îÐÂµÄ°æ±¾¡£
+£¨Ð¡½á
+³¡¾°1£ºµ±Äã¸ÄÂÒÁË¹¤×÷ÇøÄ³¸öÎÄ¼þµÄÄÚÈÝ£¬ÏëÖ±½Ó¶ªÆú¹¤×÷ÇøµÄÐÞ¸ÄÊ±£¬ÓÃÃüÁîgit checkout -- file¡£
+³¡¾°2£ºµ±Äã²»µ«¸ÄÂÒÁË¹¤×÷ÇøÄ³¸öÎÄ¼þµÄÄÚÈÝ£¬»¹Ìí¼Óµ½ÁËÔÝ´æÇøÊ±£¬Ïë¶ªÆúÐÞ¸Ä£¬·ÖÁ½²½£¬µÚÒ»²½ÓÃÃüÁîgit reset HEAD <file>£¬¾Í»Øµ½ÁË³¡¾°1£¬µÚ¶þ²½°´³¡¾°1²Ù×÷¡£
+³¡¾°3£ºÒÑ¾­Ìá½»ÁË²»ºÏÊÊµÄÐÞ¸Äµ½°æ±¾¿âÊ±£¬ÏëÒª³·Ïú±¾´ÎÌá½»£¬²Î¿¼°æ±¾»ØÍËÒ»½Ú£¬²»¹ýÇ°ÌáÊÇÃ»ÓÐÍÆËÍµ½Ô¶³Ì¿â¡££©
